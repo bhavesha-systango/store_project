@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class = "container-fluid">
+    <div class="row" style = " display: flex; min-height: 100vh;">
+        <div class = "col-4 border border-bottom-0">
+            <ul style="list-style-type:none">
+                <li class = "border p-3">store</li>
+                <li class="border p-3">Home</li>
+                <li class="border p-3">Products</li>
+                <li class="border p-3">Employee</li>
+            </ul>
+        </div>
+        <div class = "col-8 border border-bottom-0">
+            <p class="mx-auto" style="width: 200px;">Display section</p>
+        </div>
+    </div>
+    <div class="row justify-content-center m-2">
+
+            {% if products %}
+
+            {% for product in products %}
+
+                <div class="col-md-4">
+                    <div class="card m-3 p-2" style="width: 18rem; height: 33rem; box-shadow: 4px 4px #c291fa; border-radius: 25px 15px;">
+                        <img src="{{ product.image.url }}" style="height: 300px; width: 200px;"  class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h4 style="font-size: 17px;" class="card-title mt-1">{{ product.name }}</h4>
+                            <h3 style="color: rgb(16, 52, 107)" class="card-subtitle mt-1">${{ product.price }}</h3>
+                            <hr>
+                            <p style="font-size: 13px;" class="btn btn-warning"><b>{{ product.price }}</b></p>
+                            <p style="font-size: 13px;" class="cart-text mt-1">{{ product.description }}</p>                
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            {% else %}
+                 <p>No Products </p>
+            {% endif %}
+    </div>
+</div>
+
+<a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

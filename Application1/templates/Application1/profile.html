@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <h1>Profile Page</h1>
+    <h3>Welcome {{name}}</h3>
+    {% if messages %}
+            {% for message in messages %}
+                <small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>
+            {% endfor %}
+    {% endif %}
+<div class="container">
+	<div class="cu_menu">
+		<div class="row preheader">
+			<div class="col-lg-2 preheader_img">
+				<img src="images/learning.jpg">
+			</div>
+			<div class="col-lg-10 preheader_content">
+				<ul>
+					<a href="#"><li>home</li></a>
+					<a href="#"><li>about us</li></a>
+					<a href="#"><li>services</li></a>
+					<a href="#"><li>gallery</li></a>
+					<a href="#"><li>blog</li></a>
+					<a href="#"><li>pages</li></a>
+					<a href="#"><li>contact us</li></a>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="cu_banner">
+	<div class="row">
+		<div class="col-lg-2 banner_list">
+			<ul>
+				<li>dashboard</li>
+				<li>courses</li>
+				<li>groups</li>
+				<li>resources</li>
+				<li>grades</li>
+				<li><i class="fa fa-fw fa-envelope"></i>message</li>
+				<li><i class="fa fa-fw fa-wrench"></i>setting</li>
+			</ul>
+		</div>
+		<div class="col-lg-8 banner_img">
+            {% load static %} <img src="{% static "house.jpg" %}" alt="home" />
+
+		</div>
+	</div>
+</div>	
+
+
+    <a href="{% url 'logout' %}">Logout</a>
+    
+</body>
+</html>
